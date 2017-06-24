@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        姓名：<input type="text" id="name">
+    </div>
+    <div>
+        密码：<input type="text" id="password">
+    </div>
+<div>
+    <button id="submit">提交</button>
+</div>
+</body>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script>
+    $(function () {
+        $('#submit').click(function (e) {
+            e.preventDefault();
+            var name=$('#name').val();
+            var password=$('#password').val();
+            var data={
+                name:name,
+                password:password
+            }
+            $.ajax({
+                url:'/users/login',
+                data:data,
+                success:function (data) {
+                    console.log(data)
+                }
+            })
+        })
+    })
+</script>
+</html>
