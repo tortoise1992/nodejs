@@ -27,10 +27,11 @@
                 password:password
             }
             $.ajax({
-                url:'/users/login',
+                url:'/users/auth',
                 data:data,
+                type:'post',
                 success:function (data) {
-                    console.log(data)
+                    sessionStorage.setItem('token',data.token);
                 }
             })
         })

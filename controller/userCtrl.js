@@ -2,16 +2,25 @@
  * Created by Administrator on 2017/6/24.
  */
 var common=require('../lib/common');
+var jwt=require('jsonwebtoken');
 module.exports={
-    login:function (req,res) {
+    auth:function (req,res) {
         var param=req.body;
         var user={
-            name:'ahui',
+            name:'hello',
             pwd:'123456'
         }
-        if(param.name == user.name && param.password == user.pwd){
-            req.session.user=user;
-            common.callback(res,{code:200,msg:'success'})
+        var jwtSecret='ahuijs';
+        var token=jwt.sign(user,jwtSecret,{
+            expiresIn:3600
+        })
+        common.callback(res,{code:200,msg:'success',token:token})
+
+    },
+    test:function (req,res) {
+        var userinfo=req.session.user;
+        if(userinfo){
+            common.callback(res,{code:200,msg:'welcome'})
         }
     }
 }

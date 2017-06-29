@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+
+</div>
+</body>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script>
+    $(function () {
+        var token=sessionStorage.getItem('token');
+        $.ajax({
+            url:'/users/list',
+            headers: {
+                'x-access-token': token
+            },
+            success:function (data) {
+                console.log(data)
+            }
+        })
+    })
+</script>
+</html>
