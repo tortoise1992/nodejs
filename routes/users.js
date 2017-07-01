@@ -18,4 +18,8 @@ router.get('/list',auth,function (req,res,next) {
     console.log(req.userinfo);
     res.json(req.userinfo)
 })
+router.post('/addComment',function (req,res,next) {
+    user_controller.addComment(req,res,next);
+})
+
 module.exports = router;

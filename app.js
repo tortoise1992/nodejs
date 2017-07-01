@@ -20,6 +20,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+    secret:'test',
+    cookie:{maxAge:60*1000*5},
+    resave:true,
+    saveUninitialized:false
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);

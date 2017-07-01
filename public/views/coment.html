@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        手机号：<input type="text" id="phone">
+    </div>
+    <div>
+        留言：<input type="text" id="comment">
+    </div>
+<div>
+    <button id="submit">提交</button>
+</div>
+</body>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script>
+    $(function () {
+        $('#submit').click(function (e) {
+            e.preventDefault();
+            var phone=$('#phone').val();
+            var comment=$('#comment').val();
+            var data={
+                phone:phone,
+                comment:comment
+            }
+            $.ajax({
+                url:'/users/addComment',
+                data:data,
+                type:'post',
+                success:function (data) {
+
+                }
+            })
+        })
+    })
+</script>
+</html>

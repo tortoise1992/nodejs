@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>首页</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <form action="/sign" method="post">
+    <p>user: <input type="text" name="user"/></p>
+      <p>pass: <input type="text" name="pass"/></p>
+      <button>提交</button>
+  </form>
   </body>
 </html>

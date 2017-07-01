@@ -2,6 +2,8 @@
  * Created by Administrator on 2017/6/24.
  */
 var common=require('../lib/common');
+var pool=require('../conf/connect');
+var user_modal=require('../modal/user_modal');
 var jwt=require('jsonwebtoken');
 module.exports={
     auth:function (req,res) {
@@ -22,5 +24,8 @@ module.exports={
         if(userinfo){
             common.callback(res,{code:200,msg:'welcome'})
         }
+    },
+    addComment:function (req,res) {
+
     }
 }
